@@ -38,7 +38,7 @@ std::vector<Candle> DataLoader::load(const std::string &filepath)
         std::getline(ss, token, ',');
         c.close = std::stod(token);
         std::getline(ss, token, ',');
-        c.volume = std::stod(token);
+        c.volume = std::stol(token);
 
         candles.push_back(c);
     }
