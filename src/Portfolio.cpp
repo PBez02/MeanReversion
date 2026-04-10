@@ -17,6 +17,7 @@ void Portfolio::buy(double price, int qty)
 
 void Portfolio::sell(double price, int qty)
 {
+    tradeReturns.push_back((price - entryPrice) / entryPrice * 100);
     cash += price * qty;
     quantity -= qty;
     entryPrice = 0.0;
@@ -33,4 +34,14 @@ void Portfolio::printStatus(double currentPrice) const
               << " | Shares: " << quantity
               << " | Unrealised PnL $:" << getUnrealisedPnL(currentPrice)
               << "\n";
+}
+
+const std::vector<double> &Portfolio::getTradeReturns() const
+{
+    return tradeReturns;
+}
+
+double Portfolio::getCash() const
+{
+    return cash;
 }
