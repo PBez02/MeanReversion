@@ -4,6 +4,7 @@
 #include "include/MeanRevStrategy.h"
 #include "include/Metrics.h"
 
+// Main
 int main()
 {
     std::vector<Candle> candles = DataLoader::load("data/prices.csv");
