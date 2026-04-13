@@ -4,7 +4,7 @@
 class Portfolio
 {
 public:
-    Portfolio(double startingCash);
+    Portfolio(double startingCash, double commission = 0.0);
     void buy(double price, int qty);
     void sell(double price, int qty);
     double getUnrealisedPnL(double currentPrice) const;
@@ -16,5 +16,6 @@ private:
     double cash;
     double entryPrice;
     int quantity;
+    double commission;
     std::vector<double> tradeReturns;
 };

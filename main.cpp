@@ -9,7 +9,7 @@ int main()
 {
     std::vector<Candle> candles = DataLoader::load("data/prices.csv");
 
-    Portfolio portfolio(10000.0);
+    Portfolio portfolio(10000.0, 5.0);
     MeanRevStrategy strategy(portfolio, 100, 2.0);
 
     for (int i = 1; i <= (int)candles.size(); i++)

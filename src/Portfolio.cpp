@@ -1,16 +1,12 @@
 #include "../include/Portfolio.h"
 #include <iostream>
 
-Portfolio::Portfolio(double startingCash)
-{
-    cash = startingCash;
-    entryPrice = 0.0;
-    quantity = 0;
-}
+Portfolio::Portfolio(double startingCash, double commission) : cash(startingCash), entryPrice(0.0), quantity(0), commission(commission) {}
 
 void Portfolio::buy(double price, int qty)
 {
     cash -= price * qty;
+    cash -= commission;
     entryPrice = price;
     quantity += qty;
 }
@@ -19,6 +15,7 @@ void Portfolio::sell(double price, int qty)
 {
     tradeReturns.push_back((price - entryPrice) / entryPrice * 100);
     cash += price * qty;
+    cash -= commission;
     quantity -= qty;
     entryPrice = 0.0;
 }
